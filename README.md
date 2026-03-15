@@ -8,16 +8,16 @@
 
 ## 📌 Repository Overview
 
-This repository contains all the **assignments, tasks, and projects**
+This repository contains all the **assignments, tasks and projects**
 completed during the **Full Stack Web Development Internship at
 SuprMentr**.
 
 The purpose of this repository is to maintain a **structured record of
 internship work**, demonstrate the **practical implementation of web
-development concepts**, and **track learning progress** throughout the
+development concepts** and **track learning progress** throughout the
 internship program.
 
-Since the internship is **currently ongoing**, new assignments, tasks,
+Since the internship is **currently ongoing**, new assignments, tasks 
 and projects will continue to be added as the learning journey
 progresses.
 
@@ -77,7 +77,7 @@ https://github.com/arshadibrahim882/Sheik-Arshad-Ibrahim-1AM22IS100-FSWD-SuprMen
 
 🟢 **Status:** Ongoing
 
-Assignments, tasks, and projects will continue to be added as part of
+Assignments, tasks and projects will continue to be added as part of
 the internship learning process.
 
 ------------------------------------------------------------------------
@@ -94,7 +94,6 @@ and projects**.
 
 ## 👤 Author
 
-Created by **Sheik Arshad Ibrahim**\
-GitHub: https://github.com/arshadibrahim882
+Created by **[Sheik Arshad Ibrahim](https://github.com/arshadibrahim882)**
 
 © 2026
