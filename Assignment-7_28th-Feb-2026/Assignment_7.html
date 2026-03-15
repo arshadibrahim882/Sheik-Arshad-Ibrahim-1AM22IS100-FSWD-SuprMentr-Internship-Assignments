@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Manager</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .student-card {
+            background: white;
+            padding: 15px;
+            margin: 15px auto;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Manager</h1>
+    <div>
+        <input type="text" id="name" placeholder="Student Name"><br>
+        <input type="number" id="mark1" placeholder="Mark 1"><br>
+        <input type="number" id="mark2" placeholder="Mark 2"><br>
+        <input type="number" id="mark3" placeholder="Mark 3"><br>
+        <button onclick="addStudent()">Add Student</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        let students = [];
+
+        function calculateAverage(marks) {
+            let total = 0;
+            for (let i = 0; i < marks.length; i++) {
+                total += marks[i];
+            }
+            return total / marks.length;
+        }
+
+        function addStudent() {
+            let name = document.getElementById("name").value;
+            let mark1 = parseFloat(document.getElementById("mark1").value);
+            let mark2 = parseFloat(document.getElementById("mark2").value);
+            let mark3 = parseFloat(document.getElementById("mark3").value);
+
+            if (!name || isNaN(mark1) || isNaN(mark2) || isNaN(mark3)) {
+                alert("Please enter valid details!");
+                return;
+            }
+
+            let student = {
+                name: name,
+                marks: [mark1, mark2, mark3]
+            };
+
+            students.push(student);
+
+            displayStudents();
+
+            //Clear input fields.
+            document.getElementById("name").value = "";
+            document.getElementById("mark1").value = "";
+            document.getElementById("mark2").value = "";
+            document.getElementById("mark3").value = "";
+        }
+
+        function displayStudents() {
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+
+            students.forEach(function (student) {
+                let average = calculateAverage(student.marks);
+
+                outputDiv.innerHTML += `
+                    <div class="student-card">
+                        <h3>${student.name}</h3>
+                        <p>Marks: ${student.marks.join(", ")}</p>
+                        <p>Average: ${average.toFixed(2)}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>

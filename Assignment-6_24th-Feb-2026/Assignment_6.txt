@@ -1,0 +1,3 @@
+Assignment Date - 24th Feb 2026.
+Assignment Name - Console Challenge. 
+Assignment Description - Write JS programs for calculator operations inside the browser console.

@@ -1,0 +1,3 @@
+Assignment Date - 28th Feb 2026.
+Assignment Name - Student Manager.
+Assignment Description - Use arrays and objects to store student marks and calculate averages.

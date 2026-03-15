@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    form validation page.
+
+    create a registration form with name, email, password confirm password.
+
+    rules: name must not be empty.
+    email must contain @.
+    password length >=6.
+    password muct match.
+
+    display error message using DOM manipulations(not alert).
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        button {
+            padding: 6px 12px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+    <form id="regForm">
+        Name:
+        <input type="text" id="name">
+        <div class="error" id="nameError"></div>
+        <br>
+        Email:
+        <input type="text" id="email">
+        <div class="error" id="emailError"></div>
+        <br>
+        Password:
+        <input type="password" id="password">
+        <div class="error" id="passwordError"></div>
+        <br>
+        Confirm Password:
+        <input type="password" id="confirmPassword">
+        <div class="error" id="confirmPasswordError"></div>
+        <br>
+        <button type="submit">Register</button>
+        <div class="success" id="successMsg"></div>
+    </form>
+    <script src="/Session 8/Form Validation/script.js"></script>
+</body>
+</html>

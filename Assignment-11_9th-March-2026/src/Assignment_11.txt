@@ -1,0 +1,139 @@
+Assignment Date - 9th March 2026.
+Assignment Name - Mood Tracker.
+Assignment Description - Create a React app where users select their mood and it updates UI using state.
+
+
+
+src
+ ├── components
+ │   ├── MoodButton.jsx
+ │   └── MoodDisplay.jsx
+ │
+ ├── App.jsx
+ ├── App.css
+ └── main.jsx
+
+
+
+main.jsx:
+
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+
+App.jsx:
+
+import React, { useState } from "react";
+import MoodButton from "./components/MoodButton";
+import MoodDisplay from "./components/MoodDisplay";
+import "./App.css";
+
+function App() {
+  const [mood, setMood] = useState(null);
+
+  const moods = [
+    { label: "Happy", emoji: "😊", color: "#FFF9C4" },
+    { label: "Sad", emoji: "😢", color: "#BBDEFB" },
+    { label: "Angry", emoji: "😡", color: "#FFCDD2" },
+    { label: "Tired", emoji: "😴", color: "#E1BEE7" }
+  ];
+
+  const appStyle = {
+    backgroundColor: mood ? mood.color : "#f5f5f5"
+  };
+
+  return (
+    <div className="container" style={appStyle}>
+      <h1>Mood Tracker</h1>
+      <p>Select your mood for today</p>
+
+      <div className="buttons">
+        {moods.map((m) => (
+          <MoodButton
+            key={m.label}
+            mood={m}
+            setMood={setMood}
+          />
+        ))}
+      </div>
+
+      <MoodDisplay mood={mood} />
+    </div>
+  );
+}
+export default App;
+
+
+App.css:
+
+.container {
+  text-align: center;
+  min-height: 100vh;
+  padding-top: 100px;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.4s ease;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 18px;
+  margin: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.result {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+MoodButton.jsx:
+
+import React from "react";
+
+function MoodButton({ mood, setMood }) {
+  return (
+    <button onClick={() => setMood(mood)}>
+      {mood.emoji} {mood.label}
+    </button>
+  );
+}
+export default MoodButton;
+
+
+MoodDisplay.jsx:
+
+import React from "react";
+
+function MoodDisplay({ mood }) {
+  if (!mood) 
+    return null;
+
+  return (
+    <div className="result">
+      <h2>Your mood today is:</h2>
+      <p>{mood.emoji} {mood.label}</p>
+    </div>
+  );
+}
+export default MoodDisplay;

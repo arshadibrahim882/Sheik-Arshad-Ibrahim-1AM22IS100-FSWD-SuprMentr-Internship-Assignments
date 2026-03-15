@@ -1,0 +1,210 @@
+Assignment Date - 10th March 2026.
+Assignment Name - Dynamic List App.
+Assignment Description - Build a task list with add/delete functionality using hooks.
+
+
+
+src
+ ├── components
+ │   ├── TaskInput.jsx
+ │   ├── TaskList.jsx
+ │   └── TaskItem.jsx
+ │
+ ├── App.jsx
+ ├── App.css
+ └── main.jsx
+
+
+
+main.jsx:
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+
+App.jsx:
+
+import React, { useState, useEffect } from "react";
+import TaskInput from "./components/TaskInput";
+import TaskList from "./components/TaskList";
+import "./App.css";
+
+function App() {
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const addTask = (taskText) => {
+    if (taskText.trim() === "") return;
+
+    const newTask = {
+      id: Date.now(),
+      text: taskText
+    };
+
+    setTasks([...tasks, newTask]);
+  };
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
+  const editTask = (id, newText) => {
+    setTasks(
+      tasks.map(task =>
+        task.id === id ? { ...task, text: newText } : task
+      )
+    );
+  };
+
+  return (
+    <div className="container">
+      <h1>Dynamic Task List</h1>
+      <p>Total Tasks: {tasks.length}</p>
+      <TaskInput addTask={addTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+    </div>
+  );
+}
+export default App;
+
+
+App.css:
+
+.container {
+  text-align: center;
+  margin-top: 80px;
+  font-family: Arial;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 8px;
+  width: 220px;
+}
+
+button {
+  margin-left: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  width: 350px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+TaskInput.jsx:
+
+import React, { useState } from "react";
+
+function TaskInput({ addTask }) {
+  const [task, setTask] = useState("");
+
+  const handleAdd = () => {
+    addTask(task);
+    setTask("");
+  };
+
+  return (
+    <div className="input-section">
+      <input
+        type="text"
+        placeholder="Enter a task"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+      />
+      <button onClick={handleAdd}>Add Task</button>
+    </div>
+  );
+}
+export default TaskInput;
+
+
+TaskList.jsx:
+
+import React from "react";
+import TaskItem from "./TaskItem";
+
+function TaskList({ tasks, deleteTask, editTask }) {
+  if (tasks.length === 0) {
+    return <p>No tasks available</p>;
+  }
+
+  return (
+    <ul className="task-list">
+      {tasks.map(task => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          deleteTask={deleteTask}
+          editTask={editTask}
+        />
+      ))}
+    </ul>
+  );
+}
+export default TaskList;
+
+
+TaskItem.jsx:
+
+import React, { useState } from "react";
+
+function TaskItem({ task, deleteTask, editTask }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(task.text);
+
+  const handleSave = () => {
+    editTask(task.id, newText);
+    setIsEditing(false);
+  };
+
+  return (
+    <li className="task-item">
+      {isEditing ? (
+        <>
+          <input
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)}
+          />
+          <button onClick={handleSave}>Save</button>
+        </>
+      ) : (
+        <>
+          <span>{task.text}</span>
+          <div>
+            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+          </div>
+        </>
+      )}
+    </li>
+  );
+}
+export default TaskItem;

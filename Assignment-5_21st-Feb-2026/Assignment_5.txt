@@ -1,0 +1,3 @@
+Assignment Date - 21st Feb 2026.
+Assignment Name - Responsive Hero Page.
+Assignment Description - Build a responsive landing section using Flexbox that adjusts for mobile.

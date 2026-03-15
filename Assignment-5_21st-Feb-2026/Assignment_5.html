@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Hero Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background: #f4f6f9;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 10%;
+            min-height: 100vh;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            color: white;
+        }
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #ffffff;
+            color: #4e73df;
+        }
+        .btn-primary:hover {
+            background-color: #e2e6ea;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: white;
+            color: #1cc88a;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+        }
+        /* ✅ Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5%;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Build Your Future With Us</h1>
+            <p>
+                Learn modern web development with hands-on projects and real-world experience.
+                Start your journey towards becoming a professional developer today.
+            </p>
+            <div class="buttons">
+                <button class="btn-primary">Get Started</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Coding Illustration">
+        </div>
+    </section>
+</body>
+</html>

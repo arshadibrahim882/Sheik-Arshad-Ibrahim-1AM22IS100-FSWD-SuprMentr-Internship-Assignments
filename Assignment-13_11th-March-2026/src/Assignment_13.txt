@@ -1,0 +1,138 @@
+Assignment Date - 11th March 2026.
+Assignment Name - Multi-Page App.
+Assignment Description - Convert your React app into a multi-page SPA using React Router.
+
+
+
+src
+ ├── pages
+ │   ├── Home.jsx
+ │   ├── About.jsx
+ │   ├── Contact.jsx
+ │   └── NotFound.jsx
+ │
+ ├── components
+ │   └── Navbar.jsx
+ │
+ ├── App.jsx
+ └── main.jsx
+
+
+
+main.jsx:
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+
+App.jsx:
+
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+
+function App() {
+  return (
+    <div>
+      <h1>Multi Page React App</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+}
+export default App;
+
+
+Home.jsx:
+
+import React from "react";
+
+function Home(){
+  return(
+    <div>
+      <h2>Home Page</h2>
+      <p>Welcome to the Multi Page React App.</p>
+    </div>
+  )
+}
+export default Home;
+
+
+AboutUs.jsx:
+
+import React from "react";
+
+function About(){
+  return(
+    <div>
+      <h2>About Page</h2>
+      <p>This page explains the purpose of the application.</p>
+    </div>
+  )
+}
+export default About;
+
+
+Contact.jsx:
+
+import React from "react";
+
+function Contact(){
+  return(
+    <div>
+      <h2>Contact Page</h2>
+      <p>You can contact us through email or phone.</p>
+    </div>
+  )
+}
+export default Contact;
+
+
+NotFound.jsx:
+
+import React from "react";
+
+function NotFound(){
+  return(
+    <div>
+      <h2>404 - Page Not Found</h2>
+      <p>The page you are looking for does not exist.</p>
+    </div>
+  )
+}
+export default NotFound;
+
+
+Navbar.jsx:
+
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Navbar() {
+  return (
+    <nav>
+      <Link to="/">Home</Link> |{" "}
+      <Link to="/about">About</Link> |{" "}
+      <Link to="/contact">Contact</Link>
+    </nav>
+  );
+}
+export default Navbar;

@@ -1,0 +1,3 @@
+Assignment Date - 5th March 2026.
+Assignment Name - Component Hunt.
+Assignment Description - Break a popular website into components and sketch the structure.

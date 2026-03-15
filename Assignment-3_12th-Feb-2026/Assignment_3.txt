@@ -1,0 +1,3 @@
+Assignment Date - 12th Feb 2026.
+Assignment Name - My First Website.
+Assignment Description - Create a personal profile webpage using headings, images, links and lists.

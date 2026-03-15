@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input.error {
+            border-color: red;
+        }
+        input.success {
+            border-color: green;
+        }
+        .error-message {
+            color: red;
+            font-size: 13px;
+        }
+        .success-message {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+
+        <form id="myForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="name">
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="email">
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password">
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <button type="submit">Submit</button>
+            <div class="success-message" id="successMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+            const successMessage = document.getElementById("successMessage");
+
+            //Clear previous messages.
+            nameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            successMessage.textContent = "";
+
+            name.classList.remove("error", "success");
+            email.classList.remove("error", "success");
+            password.classList.remove("error", "success");
+
+            //Name validation.
+            if (name.value.trim() === "") {
+                nameError.textContent = "Name is required";
+                name.classList.add("error");
+                isValid = false;
+            } else {
+                name.classList.add("success");
+            }
+
+            //Email validation.
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email.value.trim() === "") {
+                emailError.textContent = "Email is required";
+                email.classList.add("error");
+                isValid = false;
+            } else if (!email.value.match(emailPattern)) {
+                emailError.textContent = "Enter a valid email address";
+                email.classList.add("error");
+                isValid = false;
+            } else {
+                email.classList.add("success");
+            }
+
+            //Password validation.
+            if (password.value.trim() === "") {
+                passwordError.textContent = "Password is required";
+                password.classList.add("error");
+                isValid = false;
+            } else if (password.value.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters";
+                password.classList.add("error");
+                isValid = false;
+            } else {
+                password.classList.add("success");
+            }
+
+            //If all valid.
+            if (isValid) {
+                successMessage.textContent = "Form submitted successfully!";
+                form.reset();
+
+                name.classList.remove("success");
+                email.classList.remove("success");
+                password.classList.remove("success");
+            }
+        });
+    </script>
+
+</body>
+</html>

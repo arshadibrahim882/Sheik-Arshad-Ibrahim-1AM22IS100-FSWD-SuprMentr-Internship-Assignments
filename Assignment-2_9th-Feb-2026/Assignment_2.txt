@@ -1,0 +1,3 @@
+Assignment Date - 9th Feb 2026.
+Assignment Name - Internet Explorer.
+Assignment Description - Draw and explain the client-server architecture and trace what happens when you open a website.
