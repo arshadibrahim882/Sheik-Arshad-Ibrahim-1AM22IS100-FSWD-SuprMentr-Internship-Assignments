@@ -1,0 +1,19 @@
+Assignment Date - 19th March 2026.
+Assignment Name - Folder Architect.
+Assignment Description - Retrieving Data using MVC Structure.
+
+
+
+folder-architect/
+│
+├── server.js
+├── routes/
+│   └── fileRoutes.js
+├── controller/
+│   └── fileController.js
+├── model/
+│   └── fileModel.js
+├── middleware/
+│   └── logger.js
+├── data/
+│   └── files.json

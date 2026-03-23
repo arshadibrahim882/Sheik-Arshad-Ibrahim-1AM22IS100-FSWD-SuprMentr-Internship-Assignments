@@ -1,0 +1,17 @@
+Assignment Date - 21st March 2026.
+Assignment Name - Product Listing UI.
+Assignment Description - Build a mini e-commerce frontend with product cards and filters.
+
+
+
+product-listing-ui/
+│
+├── src/
+│   ├── components/
+│   │   ├── ProductCard.jsx
+│   │   ├── ProductList.jsx
+│   │   └── Filter.jsx
+│   ├── data/
+│   │   └── products.js
+│   ├── App.jsx
+│   └── main.jsx

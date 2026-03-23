@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "file1.txt", "type": "text" },
+    { "id": 2, "name": "image.png", "type": "image" },
+    { "id": 3, "name": "notes.pdf", "type": "pdf" }
+]

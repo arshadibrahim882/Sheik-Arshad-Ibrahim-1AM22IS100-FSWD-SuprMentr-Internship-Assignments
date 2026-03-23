@@ -1,0 +1,16 @@
+Assignment Date - 23rd March 2026.
+Assignment Name - Hello Server.
+Assignment Description - Create a Node server that returns different messages on different routes.
+
+
+
+hello-server/
+│
+├── server.js
+├── routes/
+│   └── userRoutes.js
+├── controller/
+│   └── userController.js
+├── middleware/
+│   ├── logger.js
+│   └── errorHandler.js
