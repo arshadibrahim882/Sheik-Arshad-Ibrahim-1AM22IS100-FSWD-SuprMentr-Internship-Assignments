@@ -1,0 +1,15 @@
+Assignment Date - 27th March 2026.
+Assignment Name - Task API.
+Assignment Description - Create CRUD APIs for a task manager and test using Postman.
+
+
+
+task-api/
+│
+├── server.js
+├── routes/
+│   └── taskRoutes.js
+├── controller/
+│   └── taskController.js
+├── data/
+│   └── tasks.js

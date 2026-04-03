@@ -1,0 +1,17 @@
+Assignment Date - 30th March 2026.
+Assignment Name - Data Modeler. 
+Assignment Description - Design a MongoDB schema for a blogging platform.
+
+
+
+project/
+│
+├── config/
+│   └── db.js
+├── models/
+│   ├── User.js
+│   ├── Post.js
+│   └── Comment.js
+├── routes/
+│   └── blogRoutes.js
+├── server.js

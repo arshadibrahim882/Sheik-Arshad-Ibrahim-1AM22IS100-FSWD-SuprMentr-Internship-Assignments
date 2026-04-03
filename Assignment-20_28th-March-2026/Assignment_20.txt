@@ -1,0 +1,17 @@
+Assignment Date - 28th March 2026.
+Assignment Name - MVC Refactor.
+Assignment Description - Refactor the task API into MVC structure.
+
+
+
+task-mvc-api/
+│
+├── server.js
+├── routes/
+│   └── taskRoutes.js
+├── controller/
+│   └── taskController.js
+├── model/
+│   └── taskModel.js
+├── middleware/
+│   └── errorHandler.js

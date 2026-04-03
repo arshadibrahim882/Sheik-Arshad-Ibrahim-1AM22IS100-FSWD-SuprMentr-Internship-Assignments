@@ -1,0 +1,18 @@
+Assignment Date - 26th March 2026.
+Assignment Name - Route Master. 
+Assignment Description - Build Express routes for a bookstore(books, authors).
+
+
+
+bookstore-api/
+│
+├── server.js
+├── routes/
+│   ├── bookRoutes.js
+│   └── authorRoutes.js
+├── controller/
+│   ├── bookController.js
+│   └── authorController.js
+├── data/
+│   ├── books.js
+│   └── authors.js
