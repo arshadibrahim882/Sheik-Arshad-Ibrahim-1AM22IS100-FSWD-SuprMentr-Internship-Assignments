@@ -1,0 +1,20 @@
+Assignment Date - 6th April 2026.
+Assignment Name - Secure Login. 
+Assignment Description - Build signup/login with hashed passwords and JWT.
+
+
+
+Secure_Login/
+│
+├── config/
+│   └── db.js
+├── models/
+│   └── userModel.js
+├── controllers/
+│   └── authController.js
+├── routes/
+│   └── authRoutes.js
+├── middleware/
+│   └── authMiddleware.js
+├── .env
+├── server.js

@@ -1,0 +1,21 @@
+Assignment Date - 8th April 2026.
+Assignment Name - Role Guard. 
+Assignment Description - Add admin/user roles and restrict certain routes.
+
+
+
+Role_Guard/
+│
+├── config/
+│   └── db.js
+├── models/
+│   └── userModel.js
+├── controllers/
+│   └── authController.js
+├── middleware/
+│   ├── authMiddleware.js
+│   └── roleMiddleware.js
+├── routes/
+│   └── authRoutes.js
+├── .env
+├── server.js

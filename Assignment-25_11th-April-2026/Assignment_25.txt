@@ -1,0 +1,30 @@
+Assignment Date - 11th April 2026.
+Assignment Name - Connect the Stack. 
+Assignment Description - Connect React frontend to your backend APIs.
+
+
+
+connect-stack/
+│
+├── backend/
+│   ├── config/
+│   │   └── db.js
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Post.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── postRoutes.js
+│   ├── server.js
+│   └── .env
+│
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   ├── Signup.jsx
+    │   │   ├── Login.jsx
+    │   │   └── Post.jsx
+    │   ├── api.jsx
+    │   ├── App.jsx
+    │   └── main.jsx
+    └── index.html

@@ -1,0 +1,18 @@
+Assignment Date - 3rd April 2026.
+Assignment Name - CRUD Lab. 
+Assignment Description - Implement CRUD operations using Mongoose.
+
+
+
+CRUD_Lab/
+│
+├── config/
+│   └── db.js
+├── models/
+│   └── productModel.js
+├── controllers/
+│   └── productController.js
+├── routes/
+│   └── productRoutes.js
+├── .env
+├── server.js
